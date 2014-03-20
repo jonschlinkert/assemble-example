@@ -1,0 +1,10 @@
+<div class="bs-docs-sidebar hidden-print affix-top" role="complementary">
+  <ul class="nav bs-docs-sidenav">
+  {{#each pages}}
+    {{#is data.layout 'post'}}
+    <li> <a href="{{this.filename}}">{{data.title}}</a> </li>
+    {{/is}}
+  {{/each}}
+  </ul>
+</div>
+

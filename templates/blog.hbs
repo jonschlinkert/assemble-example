@@ -2,4 +2,12 @@
 title: Blog
 ---
 
-{{md 'content/blog-post.md'}}
+
+
+<ul class="list-group">
+{{#each pages}}
+  {{#is data.layout 'post'}}
+  <li class="list-group-item"> <a href="blog/{{this.filename}}">{{data.title}}</a> </li>
+  {{/is}}
+{{/each}}
+</ul>

@@ -10,15 +10,31 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.initConfig({
+
+    // Metadata
+    site: grunt.file.readYAML('.assemblerc.yml'),
+
     assemble: {
       options: {
         flatten: true,
-        partials: ['templates/includes/*.hbs'],
-        layoutdir: 'templates/layouts',
-        layout: 'default.hbs'
+
+        // Add `site` to the context
+        site: '<%= site %>',
+
+        // Extensions
+        helpers: '<%= site.helpers %>/*.js',
+
+        // Templates
+        partials: ['<%= site.includes %>/*.hbs'],
+        layoutdir: '<%= site.layouts %>',
+        layoutext: '<%= site.layoutext %>',
+        layout: '<%= site.layout %>'
       },
       site: {
-        files: {'dest/': ['templates/*.hbs']}
+        files: {
+          '<%= site.dest %>/blog/': ['<%= site.content %>/*.md'],
+          '<%= site.dest %>/': ['<%= site.templates %>/*.hbs']
+        }
       }
     }
   });

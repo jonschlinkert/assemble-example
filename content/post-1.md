@@ -1,4 +1,7 @@
-# Blog post
+---
+title: Post 1
+layout: post
+---
 
 > This is an example blog post
 
