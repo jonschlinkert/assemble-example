@@ -12,7 +12,7 @@ Ready to learn how to do _more than_ what's covered in the gist? Of course you a
 
 Download this project using one of the following options:
 
-* Use git: `git clone https://github.com/jonschlinkert/assemble-example.git`
+* Use git: `git clone -b "assemblefile" https://github.com/jonschlinkert/assemble-example.git`
 * Download directly [from GitHub](https://github.com/jonschlinkert/assemble-example/archive/master.zip), then unpack the zip file.
 
 Next, in the root of the `assemble-example` directory, to install the necessary dependencies, run:
@@ -20,21 +20,19 @@ Next, in the root of the `assemble-example` directory, to install the necessary 
 ```bash
 npm install
 ```
-Done! You should now be able to run `grunt` to build the project.
-
-_<sup>(Although this example project uses Grunt, unless otherwise noted the information here is build-chain agnostic. If you're a Gulp fan, stay on the lookout, we'll be publishing a [gulp-assemble](https://github.com/assemble/gulp-assemble) example soon!)</sup>_
-
+Done! You should now be able to run `assemble` to build the project.
 
 ### Usage
 
 This is all Assemble needs to successfully build a project:
 
 ```js
-assemble: {
-  site: {
-    files: {'dest/': ['templates/*.hbs']}
-  }
-}
+var assemble = require('assemble');
+
+assemble.task('default', function() {
+  assemble.src('templates/*.hbs')
+    .pipe(assemble.dest('dist'))
+});
 ```
 
 Done. No, really, that's all you need.
