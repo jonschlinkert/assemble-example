@@ -25,9 +25,9 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {},
+  "keywords": [],
   "devDependencies": {
-    "grunt": "~0.4.3",
-    "assemble": "~0.4.37"
-  },
-  "keywords": []
+    "verb": "^0.2.15",
+    "verb-tag-jscomments": "^0.2.2"
+  }
 }
